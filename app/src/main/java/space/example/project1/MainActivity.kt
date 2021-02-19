@@ -1,7 +1,6 @@
 package space.example.project1
 
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -23,13 +22,13 @@ class MainActivity : Activity() {
     fun onClickStart(view: View) {
         imSemafor?.setImageResource(R.drawable.semafor_grey)
         view as ImageButton
-        view.setImageResource(R.drawable.button_stop)
+        view.setImageResource(R.drawable.button_start)
         if (!is_run) {
             startStop()
             is_run = true
         } else {
             timer?.cancel()
-            view.setImageResource(R.drawable.button_start)
+            view.setImageResource(R.drawable.button_stop)
             is_run = false
             counter = 0
         }
