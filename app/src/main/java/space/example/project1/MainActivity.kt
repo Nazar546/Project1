@@ -17,32 +17,32 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         imSemafor = findViewById(R.id.imSemafor)
+        timer = Timer()
     }
 
     fun onClickStart(view: View) {
         imSemafor?.setImageResource(R.drawable.semafor_grey)
         view as ImageButton
-        view.setImageResource(R.drawable.button_start)
+        view.setImageResource(R.drawable.button_stop)
         if (!is_run) {
             startStop()
             is_run = true
         } else {
             timer?.cancel()
-            view.setImageResource(R.drawable.button_stop)
+            view.setImageResource(R.drawable.button_start)
             is_run = false
             counter = 0
         }
     }
 
     fun startStop() {
-        timer = Timer()
         timer?.schedule(object : TimerTask() {
             override fun run() {
                 runOnUiThread {
                     imSemafor?.setImageResource(imageArray[counter])
                     counter++
                     if (counter == 3) counter = 0
-                    }
+                }
                 }
             }, 0, 1000)
     }

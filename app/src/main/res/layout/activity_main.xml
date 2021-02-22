@@ -5,44 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
+    android:onClick="onClickStart"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imSemafor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="184dp"
+        android:layout_height="283dp"
         android:src="@drawable/semafor_grey"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.324" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:layout_width="78dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="27dp"
+        android:id="@+id/mybutton"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
         android:background="#00BAAEAE"
+        android:onClick="onClickStart"
         android:scaleType="fitCenter"
         android:src="@drawable/button_start"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98"
-        tools:src="@drawable/button_start" />@+id/Button"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_marginTop="52dp"
-    android:background="@android:color/transparent"
-    android:onClick="onClickStart"
-    android:scaleType="fitCenter"
-    android:src="@drawable/button_start"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.498"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/imSemafor" />
+        app:layout_constraintTop_toBottomOf="@+id/imSemafor"
+        tools:src="@drawable/button_start" />
 </androidx.constraintlayout.widget.ConstraintLayout>
