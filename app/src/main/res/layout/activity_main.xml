@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    android:onClick="onClickStart"
     android:orientation="vertical"
     tools:context=".MainActivity"
     tools:ignore="OnClick">
