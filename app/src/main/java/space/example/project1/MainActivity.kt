@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
+import space.example.project1.R.drawable.button_stop
 import java.util.*
+import java.util.Timer as Timer1
 
 class MainActivity : Activity() {
     var imSemafor: ImageView? = null
     var counter: Int = 0
-    var timer: Timer? = null
+    var timer: Timer1? = null
     var is_run = false
     var imageArray: IntArray = intArrayOf(R.drawable.semafor_red, R.drawable.semafor_yellow, R.drawable.semafor_green)
 
@@ -25,7 +27,7 @@ class MainActivity : Activity() {
         if (!is_run) {
 
             startStop()
-            view.setImageResource(R.drawable.button_stop)
+            view.setImageResource(button_stop)
             is_run = true
         } else {
             imSemafor?.setImageResource(R.drawable.semafor_grey)
@@ -37,7 +39,7 @@ class MainActivity : Activity() {
     }
 
     fun startStop() {
-        timer = Timer()
+        timer = Timer1()
         timer?.schedule(object : TimerTask() {
             override fun run() {
                 runOnUiThread {
@@ -47,6 +49,23 @@ class MainActivity : Activity() {
                 }
             }
 
-        }, 0, 1000)
+        }, 0, 500)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("savedInt", counter)
+        outState.putBoolean("savedBoolean", is_run)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        var userNumber = savedInstanceState.getInt("savedInt", 0)
+        counter = userNumber
+        var userTimer = savedInstanceState.getBoolean("savedBoolean", is_run)
+        is_run = userTimer
+        startStop()
+        val view = findViewById<ImageButton>(R.id.mybutton)
+        view.setImageResource(R.drawable.button_stop)
     }
 }
